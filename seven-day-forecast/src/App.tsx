@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import logo from './logo.svg';
 import './App.css';
+
 //#region API Callouts
 
 class Forecast {
@@ -157,8 +158,24 @@ async function getForecast(location: WfoLocation) {
 
 
 
-
 function App() {
+  var currentCoordinates: string = '';
+  var currentWfoLoc: WfoLocation = new WfoLocation();
+  var fullForecast: Forecast[] = new Array<Forecast>();
+  
+  const [fullAddress, setFullAddress] = useState('');
+  const [coordinateX, setCoordinateX] = useState('');
+  const [coordinateY, setCoordinateY] = useState('');
+
+  const [streetAddress, setAddress] = useState('');
+  const [city, setCity] = useState('');
+  const [state, setState] = useState('');
+  const [zip, setZip] = useState('');
+
+  for(var i: number = 0; i++; i < 14) {
+    fullForecast[i] = new Forecast();
+  }
+
   return (
     <div className="App">
       <header className="App-header">
@@ -175,6 +192,44 @@ function App() {
           Learn React
         </a>
       </header>
+      <div className='form'>
+        <table>
+          <tr>
+            <td><p>Address </p></td>
+            <td><input name='address' id='address' onChange={(event) => setAddress(event.currentTarget.value)}/></td>
+          </tr>
+          <tr>
+            <td><p>City </p></td>
+            <td><input name='city' id='city' onChange={(event) => setCity(event.currentTarget.value)}/></td>
+          </tr>
+          <tr>
+            <td><p>State </p></td>
+            <td><input name='state' id='state' onChange={(event) => setState(event.currentTarget.value)}/></td>
+          </tr>
+          <tr>
+            <td><p>ZIP Code </p></td>
+            <td><input name='zip' id='zip' onChange={(event) => setZip(event.currentTarget.value)}/></td>
+          </tr>
+        </table>
+        <button id="submit" onClick={(event) => {
+            event.preventDefault();
+            setFullAddress(streetAddress + '\n' + city + '\n' + state + '\n' + zip);
+          }}>
+          Set Location
+        </button>
+
+        <p>Here's some nerd stuff if you felt like you wanted to know that</p>
+        <table>
+          <tr>
+            <div className='top-align'><td><p>Current Address</p></td></div>
+            <td>
+              <p>{streetAddress}</p>
+              <p>{city}, {state} {zip}</p>
+            </td>
+          </tr>
+        </table>
+        <p>Current Address: {fullAddress}</p>
+      </div>
     </div>
   );
 }

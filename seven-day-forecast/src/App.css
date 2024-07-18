@@ -1,5 +1,28 @@
 .App {
+  background-color: #282c34;
+  color: white;
+}
+
+.top-align {
+  vertical-align: top;
+}
+
+.form {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+}
+
+.form p,input,button {
+  margin-left: 25px;
+}
+
+button#submit {
   text-align: center;
+}
+
+input#address {
+  width: 250px;
 }
 
 .App-logo {
@@ -14,6 +37,7 @@
 }
 
 .App-header {
+  text-align: center;
   background-color: #282c34;
   min-height: 100vh;
   display: flex;
