@@ -1,6 +1,17 @@
 .App {
   background-color: #282c34;
   color: white;
+  min-height: 100vh;
+}
+
+.forecast {
+  display: inline-block;
+  width: auto;
+  height: auto;
+  margin-left: 25px;
+}
+.forecast table {
+  border: #61dafb;
 }
 
 .top-align {
@@ -8,7 +19,7 @@
 }
 
 .form {
-  display: block;
+  display: inline-block;
   width: fit-content;
   height: fit-content;
 }
@@ -39,7 +50,6 @@ input#address {
 .App-header {
   text-align: center;
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;

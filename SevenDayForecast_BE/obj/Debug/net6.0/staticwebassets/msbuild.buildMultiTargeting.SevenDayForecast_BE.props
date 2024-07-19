@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\SevenDayForecast_BE.props" />
+</Project>

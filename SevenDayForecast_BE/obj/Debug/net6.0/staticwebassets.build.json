@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "cFBCC9Ui3j6hv+eFeyirtFaDHXlPG+d6JJ7Nk4vkkkE=",
+  "Source": "SevenDayForecast_BE",
+  "BasePath": "_content/SevenDayForecast_BE",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}
