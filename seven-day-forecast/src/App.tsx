@@ -52,16 +52,18 @@ function App() {
   // public temperature: number = 0.0;
   const forecastsDisplay = fullForecast.map( forecast => (
       <table>
+        <thead>
+          <tr>
+            <td colSpan={2}>{forecast.name}</td>
+          </tr>
+        </thead>
         <tbody>
           <tr>
-            <td>{forecast.name}</td>
-          </tr>
-          <tr>
-            <td>{forecast.shortDesc}</td>
+            <td colSpan={2}>{forecast.shortDesc}</td>
           </tr>
           <tr>
             <td>Precipitation</td>
-            <td>{forecast.probOfPrecip}%</td>
+            <td>{forecast.probOfPrecip} %</td>
           </tr>
           <tr>
             <td>Temperature</td>
@@ -73,82 +75,78 @@ function App() {
 
   return (
     <div className="App">
-      <header className="App-header">
-        {/* <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a> */}
-      </header>
-      <div className='form'>
-        <table>
-          <tbody>
-            <tr>
-              <td><p>Address </p></td>
-              <td><input name='address' id='address' onChange={(event) => setAddress(event.currentTarget.value)}/></td>
-            </tr>
-            <tr>
-              <td><p>City </p></td>
-              <td><input name='city' id='city' onChange={(event) => setCity(event.currentTarget.value)}/></td>
-            </tr>
-            <tr>
-              <td><p>State </p></td>
-              <td><input name='state' id='state' onChange={(event) => setState(event.currentTarget.value)}/></td>
-            </tr>
-            <tr>
-              <td><p>ZIP Code </p></td>
-              <td><input name='zip' id='zip' onChange={(event) => setZip(event.currentTarget.value)}/></td>
-            </tr>
-            <tr>
-              <td></td>
-              <td>
-                <button id="submit" onClick={(event) => {
-                    event.preventDefault();
-                    try {
-                      getForecast(streetAddress, city, state, zip).then((val) => {
-                        if(val !== null){
-                          setFullForecast(val);
-                          setCurrentAddressLine1(streetAddress);
-                          setCurrentAddressLine2(city + ', ' + state + ' ' + zip);
-                        }
-                        else alert("Location not found");
-                      });
-                    }
-                    catch (error: any) {
-                      alert("Location not found");
-                      console.log(error.message);
-                    }
-                  }}>
-                  Set Location
-                </button>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-        <br/><br/>
-        <table>
-          <tbody>
-            <tr>
-              <td><div className='top-align'><p>Current Address</p></div></td>
-              <td>
-                <p>{currentAddressLine1}</p>
-                <p>{currentAddressLine2}</p>
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <div className='forecast'>
-        <h1>7-Day Forecast</h1>
-        {forecastsDisplay}
-      </div>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <div className='form'>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><p>Address </p></td>
+                      <td><input name='address' id='address' onChange={(event) => setAddress(event.currentTarget.value)}/></td>
+                    </tr>
+                    <tr>
+                      <td><p>City </p></td>
+                      <td><input name='city' id='city' onChange={(event) => setCity(event.currentTarget.value)}/></td>
+                    </tr>
+                    <tr>
+                      <td><p>State </p></td>
+                      <td><input name='state' id='state' onChange={(event) => setState(event.currentTarget.value)}/></td>
+                    </tr>
+                    <tr>
+                      <td><p>ZIP Code </p></td>
+                      <td><input name='zip' id='zip' onChange={(event) => setZip(event.currentTarget.value)}/></td>
+                    </tr>
+                    <tr>
+                      <td></td>
+                      <td>
+                        <button id="submit" onClick={(event) => {
+                            event.preventDefault();
+                            try {
+                              getForecast(streetAddress, city, state, zip).then((val) => {
+                                if(val !== null){
+                                  setFullForecast(val);
+                                  setCurrentAddressLine1(streetAddress);
+                                  setCurrentAddressLine2(city + ', ' + state + ' ' + zip);
+                                }
+                                else alert("Location not found");
+                              });
+                            }
+                            catch (error: any) {
+                              alert("Location not found");
+                              console.log(error.message);
+                            }
+                          }}>
+                          Set Location
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+                <br/><br/>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td><div className='top-align'><p>Current Address</p></div></td>
+                      <td>
+                        <p>{currentAddressLine1}</p>
+                        <p>{currentAddressLine2}</p>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </td>
+            <td>
+              <div className='forecast'>
+                <h1>7-Day Forecast</h1>
+                {forecastsDisplay}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   );
 }

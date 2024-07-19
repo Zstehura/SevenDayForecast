@@ -2,16 +2,34 @@
   background-color: #282c34;
   color: white;
   min-height: 100vh;
+  max-width: 100%;
 }
 
 .forecast {
   display: inline-block;
-  width: auto;
-  height: auto;
+  width: 100%;
+  height: 100%;
   margin-left: 25px;
 }
+
+.forecast thead td {
+  border-bottom: #61dafb;
+  border-bottom-style: dashed;
+  border-bottom-width: 1px;
+}
+.forecast tbody,thead,tr {
+  width: auto;
+}
+
 .forecast table {
+  width: 300px;
   border: #61dafb;
+  border-width: 1px;
+  border-style: solid;
+  display: inline-block;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  vertical-align: top;
 }
 
 .top-align {
@@ -19,13 +37,14 @@
 }
 
 .form {
+  vertical-align: top;
   display: inline-block;
-  width: fit-content;
+  width: 400px;
   height: fit-content;
 }
 
 .form p,input,button {
-  margin-left: 25px;
+  margin-left: 20px;
 }
 
 button#submit {
