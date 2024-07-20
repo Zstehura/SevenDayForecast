@@ -43,7 +43,7 @@
   height: fit-content;
 }
 
-.form p,input,button {
+.form p,input,button,select {
   margin-left: 20px;
 }
 
